@@ -1,0 +1,12 @@
+@import "normalize";
+@import "rhythm";
+
+html {
+	@include rhythm-init(14px, 1.7, 'golden section');
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
