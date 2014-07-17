@@ -7,7 +7,7 @@
 // -----------------------------------------------------------------------------
 
 // returns a base line-height value (in pixels) initialized by rhythm-init mixin
-$rhythm: null !global;
+$rhythm: null;
 
 // functions
 // -----------------------------------------------------------------------------
@@ -26,12 +26,12 @@ $rhythm: null !global;
 
 // defines global variables and prepares a vertical rhythm to work
 @mixin rhythm-init($__font-size, $__line-height, $__modular-scale) {
-	$rhythm-base-font-size: $__font-size !global;
-	$rhythm-base-line-height: rhythm-convert-line-height-to-px($__line-height) !global;
-	$rhythm-base-ratio: $rhythm-base-line-height / $rhythm-base-font-size !global;
-	$rhythm-modular-scale: rhythm-get-modular-scale($__modular-scale) !global;
+	$rhythm-base-font-size: $__font-size;
+	$rhythm-base-line-height: rhythm-convert-line-height-to-px($__line-height);
+	$rhythm-base-ratio: $rhythm-base-line-height / $rhythm-base-font-size;
+	$rhythm-modular-scale: rhythm-get-modular-scale($__modular-scale);
 
-	$rhythm: $rhythm-base-line-height !global;
+	$rhythm: $rhythm-base-line-height;
 
 	@include rhythm-normalize;
 }
@@ -48,12 +48,12 @@ $rhythm: null !global;
 // global variables
 // -----------------------------------------------------------------------------
 
-$rhythm-base-font-size: null !global;
-$rhythm-base-line-height: null !global;
-$rhythm-base-ratio: null !global;
-$rhythm-modular-scale: null !global;
+$rhythm-base-font-size: null;
+$rhythm-base-line-height: null;
+$rhythm-base-ratio: null;
+$rhythm-modular-scale: null;
 
-$rhythm-current-font-size-ratio: null !global;
+$rhythm-current-font-size-ratio: null;
 
 // functions
 // -----------------------------------------------------------------------------
@@ -121,7 +121,7 @@ $rhythm-current-font-size-ratio: null !global;
 		$-font-size-ratio: $__value / $rhythm-base-font-size;
 	}
 
-	$rhythm-current-font-size-ratio: $-font-size-ratio !global;
+	$rhythm-current-font-size-ratio: $-font-size-ratio;
 
 	@return $-font-size;
 }

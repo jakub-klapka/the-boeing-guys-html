@@ -2,6 +2,7 @@
 
 /*
 Tasks:
+	default - compile css, js, images
 	css - compile scss
 	dev - watcher
  */
@@ -11,13 +12,18 @@ var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var plumber = require('gulp-plumber');
 var livereload = require('gulp-livereload');
+var imagemin = require('gulp-imagemin');
 
 var path = require('path');
 
 var sass_config = {
 	precision: 10
 };
+var imagemin_config = {
+	progressive: true
+};
 var dev_tasks = [];
+var default_tasks = [];
 
 /*
 CSS
@@ -53,17 +59,37 @@ gulp.task( 'watch_css', function(){
 dev_tasks.push('watch_css');
 
 /*
+Images
+ */
+gulp.task( 'images', function() {
+	gulp.src( 'source_images/**/*.{jpg,jpeg,gif,png,svg}', { base: 'source_images' } )
+		.pipe( plumber() )
+		.pipe( imagemin( imagemin_config ) )
+		.pipe( gulp.dest( 'images' ) );
+
+	gulp.src( ['source_images/**/*', '!*.{jpg,jpeg,gif,png,svg}'], { base: 'source_images' } )
+		.pipe( gulp.dest( 'images' ) );
+} );
+default_tasks.push( 'images' );
+
+gulp.task( 'watch_images', function() {
+	gulp.watch( 'source_images/**/*', ['images'] );
+} );
+dev_tasks.push( 'watch_images' );
+
+
+/*
 Livereload
  */
 gulp.task( 'livereload', function(){
 	livereload.listen();
-	gulp.watch( ['*.html', 'css/**/*', 'source_js/**/*.js'], function(evt) {
+	gulp.watch( ['*.html', 'css/**/*', 'source_js/**/*.js', 'images/**/*'], function(evt) {
 		livereload.changed( evt.path );
 	} );
 } );
 dev_tasks.push('livereload');
 
 /*
-Dev task
+Tasks def
  */
 gulp.task( 'dev', dev_tasks );

@@ -1,6 +1,13 @@
 @import "normalize";
 @import "rhythm";
 
+/*
+Variables
+*/
+$panel_background: #2b2e39;
+$gutter: 32px;
+$container_width: 960px;
+
 html {
 	@include rhythm-init(14px, 1.7, 'golden section');
 }
@@ -10,3 +17,100 @@ html {
 *:after {
 	box-sizing: border-box;
 }
+
+/*
+Modules
+*/
+%clearfix {
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+.panel {
+	background: $panel_background;
+	background-repeat: no-repeat;
+	background-image:
+		url('../images/screw.png'),url('../images/screw.png'), url('../images/screw.png'), url('../images/screw.png'),
+		linear-gradient( to bottom, #3d4150 0%, #3d4150 1px, #30343f 1px, #30343f 2px, #2a2d37 2px, #2a2d37 3px );
+	background-position: left top, right top, left bottom, right bottom;
+
+	border-left: 1px solid #30343f;
+	border-right: 1px solid #30343f;
+
+	box-shadow:
+		0 3px 15px -3px rgba( 0, 0, 0, 0.8 ),
+		0 -5px 5px -2px rgba( 255, 255, 255, 0.05 );
+}
+
+/*
+Layout
+*/
+html {
+	height: 100%;
+}
+body {
+	background: #1f2229;
+	min-height: 100%;
+	position: relative;
+}
+
+.speedtape {
+	$image_width: 149px;
+	$margin_left: ( - ( $container_width / 2 ) - $image_width - $gutter );
+	position: absolute;
+	left: 50%;
+	margin-left: $margin_left;
+	top: 0;
+	bottom: 0;
+	width: $image_width;
+	background-image: url('../images/lines_left.png');
+
+	&::before {
+		content: '';
+		position: fixed;
+		top: 0;
+		left: 50%;
+		margin-left: $margin_left;
+		background-image: url("../images/lines_left_top.png");
+		width: 149px;
+		height: 60px;
+	}
+
+	&::after {
+		content: '';
+		position: fixed;
+		bottom: 0;
+		left: 50%;
+		margin-left: $margin_left;
+		background-image: url("../images/lines_left_bottom.png");
+		width: 149px;
+		height: 60px;
+	}
+}
+
+.container {
+	width: $container_width;
+	margin: 0 auto;
+	padding: $gutter 0;
+	position: relative;
+	min-height: 100%;
+}
+
+$header_height: 196px;
+.main_header {
+	@extend %clearfix;
+}
+	.main_header__logo {
+		width: 336px;
+		float: left;
+		height: $header_height;
+	}
+
+	.main_header__nav {
+		width: 592px;
+		float: right;
+		height: $header_height;
+	}
