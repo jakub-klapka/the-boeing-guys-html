@@ -4,11 +4,13 @@
 	<meta charset="UTF-8">
 	<title>The Boeing Guys</title>
 
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'><!--https://www.google.com/fonts#UsePlace:use/Collection:Roboto:400,400italic-->
 	<link rel="stylesheet" href="css/layout.css"/>
 </head>
 <body>
 
-<div class="speedtape"></div>
+<div class="speedtape"><div class="speedtape__indicator" id="speedtape_indicator" data-range-bottom="40" data-range-top="320"></div></div>
+<div class="altimeter"><div class="altimeter__indicator" id="altimeter_indicator" data-range-bottom="0" data-range-top="42000"></div></div>
 
 <div class="container">
 
@@ -78,5 +80,7 @@
 	a<br>
 </div>
 
+<script type="text/javascript" src="source_js/layout/10_jquery-2.1.1.js"></script>
+<script type="text/javascript" src="source_js/layout/20_indicators.js"></script>
 </body>
 </html>

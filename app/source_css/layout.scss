@@ -46,6 +46,13 @@ Modules
 }
 
 /*
+Typography
+*/
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+/*
 Layout
 */
 html {
@@ -57,25 +64,21 @@ body {
 	position: relative;
 }
 
-.speedtape {
-	$image_width: 149px;
-	$margin_left: ( - ( $container_width / 2 ) - $image_width - $gutter );
+$side_indicators_image_width: 149px;
+
+%side_indicators {
 	position: absolute;
 	left: 50%;
-	margin-left: $margin_left;
 	top: 0;
 	bottom: 0;
-	width: $image_width;
-	background-image: url('../images/lines_left.png');
+	width: $side_indicators_image_width;
 
 	&::before {
 		content: '';
 		position: fixed;
 		top: 0;
 		left: 50%;
-		margin-left: $margin_left;
-		background-image: url("../images/lines_left_top.png");
-		width: 149px;
+		width: $side_indicators_image_width;
 		height: 60px;
 	}
 
@@ -84,12 +87,83 @@ body {
 		position: fixed;
 		bottom: 0;
 		left: 50%;
-		margin-left: $margin_left;
-		background-image: url("../images/lines_left_bottom.png");
-		width: 149px;
+		width: $side_indicators_image_width;
 		height: 60px;
 	}
 }
+	%side_indicators__indicator {
+		position: fixed;
+		left: 50%;
+		top: 50%;
+		margin-top: -( 24px / 2 );
+		height: 24px;
+		line-height: 24px;
+		color: #FFF;
+		text-align: center;
+		font-size: 14px;
+		font-style: italic;
+	}
+
+.speedtape {
+	@extend %side_indicators;
+	$left_margin: ( - ( $container_width / 2 ) - $side_indicators_image_width - $gutter );
+
+	margin-left: $left_margin;
+	background-image: url('../images/lines_left.png');
+
+	&::before {
+		margin-left: $left_margin;
+		background-image: url("../images/lines_left_top.png");
+
+	}
+
+	&::after {
+		margin-left: $left_margin;
+		background-image: url("../images/lines_left_bottom.png");
+	}
+
+}
+	.speedtape__indicator {
+		@extend %side_indicators__indicator;
+		background-image: url("../images/lines_left_indicator.png");
+		margin-left: ( - ( $container_width / 2 ) - $gutter - 105px );
+		width: 43px;
+		padding-right: 10px;
+
+	}
+
+
+
+.altimeter {
+	@extend %side_indicators;
+	$right_margin: ( $container_width / 2 ) + $gutter;
+
+	margin-left: $right_margin;
+	background-image: url('../images/lines_right.png');
+
+
+	&::before {
+		margin-left: $right_margin;
+		background-image: url("../images/lines_right_top.png");
+
+	}
+
+	&::after {
+		margin-left: $right_margin;
+		background-image: url("../images/lines_right_bottom.png");
+
+	}
+
+}
+	.altimeter__indicator {
+		@extend %side_indicators__indicator;
+		background-image: url("../images/lines_right_indicator.png");
+		margin-left:  ( $container_width / 2 ) + $gutter + 60px;
+		width: 58px;
+		padding-left: 10px;
+
+	}
+
 
 .container {
 	width: $container_width;
