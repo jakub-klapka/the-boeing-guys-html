@@ -5,6 +5,7 @@
 Variables
 */
 $panel_background: #2b2e39;
+$active_color: #ff9800;
 $gutter: 32px;
 $container_width: 960px;
 
@@ -43,6 +44,41 @@ Modules
 	box-shadow:
 		0 3px 15px -3px rgba( 0, 0, 0, 0.8 ),
 		0 -5px 5px -2px rgba( 255, 255, 255, 0.05 );
+
+	padding: 10px 48px;
+}
+
+.button {
+	background-image: linear-gradient( to bottom, #3c3f49 0%, #3c3f49 2px, #2f323d 2px, #2f323d 3px, #363943 100% );
+	box-shadow:
+		0 3px 15px -3px rgba( 0, 0, 0, 0.8 ),
+		0 -5px 5px -2px rgba( 255, 255, 255, 0.05 );
+	border: 1px solid #3e414b;
+	border-top-color: #585a63;
+	border-bottom-color: #363943;
+
+	height: 50px;
+	line-height: 50px;
+	color: #FFF;
+	text-decoration: none;
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+	transition-property: border-color, color;
+	transition-duration: 300ms;
+
+	a {
+		color: inherit;
+		text-decoration: inherit;
+		display: block;
+		padding: 0 10px;
+	}
+
+	&.active,
+	&:hover {
+		border-color: $active_color;
+		color: $active_color;
+	}
 }
 
 /*
@@ -181,10 +217,68 @@ $header_height: 196px;
 		width: 336px;
 		float: left;
 		height: $header_height;
+		position: relative;
 	}
+		.main_header__logo__link {
+			$width: 200px;
+			$height: 100px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: - $width / 2;
+			margin-top: - $height / 2;
+
+			img {
+				display: block;
+			}
+		}
 
 	.main_header__nav {
 		width: 592px;
 		float: right;
 		height: $header_height;
+		position: relative;
 	}
+
+		$menu_button_width: 112px;
+		$menu_button_margin: 15px;
+		.main_header__nav__menu {
+			list-style: none;
+			display: block;
+			padding-left: 0;
+			margin-top: 0;
+			position: absolute;
+			font-size: 0;
+			width: ( $menu_button_width * 4 + $menu_button_margin * 3 );
+			left: 50%;
+			top: 50%;
+			transform: translate( -50%, -50% );
+		}
+
+			.main_header__nav__menu__item {
+				@extend .button;
+				display: inline-block;
+				width: $menu_button_width;
+				margin: 0 $menu_button_margin $menu_button_margin 0;
+				font-size: 1rem;
+
+				&:nth-of-type( 4n ) {
+					margin-right: 0;
+				}
+
+				&:nth-of-type( n + 5 ) {
+					margin-bottom: 0;
+				}
+
+				a {
+					//Duplicated from .button due to libsass bug https://github.com/sass/libsass/issues/146
+					color: inherit;
+					text-decoration: inherit;
+					display: block;
+					padding: 0 10px;
+				}
+			}
+
+.main_content {
+	margin-top: $gutter;
+}
