@@ -3,3 +3,5 @@ resources/
 app/node_modules/
 app/css/
 app/images/
+app/svg_sprite/
+app/source_css/_svg_sprite.scss

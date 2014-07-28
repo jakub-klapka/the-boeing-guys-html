@@ -13,6 +13,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var plumber = require('gulp-plumber');
 var livereload = require('gulp-livereload');
 var imagemin = require('gulp-imagemin');
+var svg_sprite = require('gulp-svg-sprites');
 
 var path = require('path');
 
@@ -26,9 +27,31 @@ var dev_tasks = [];
 var default_tasks = [];
 
 /*
+SVG sprites
+ */
+gulp.task( 'svg_sprite', function() {
+
+	gulp.src( 'source_svg_sprite/*.svg' )
+		.pipe( imagemin() )
+		.pipe( svg_sprite( {
+			'cssFile': 'source_css/_svg_sprite.scss',
+			'svgPath': '../%f',
+			'svg': { 'sprite': 'svg_sprite/sprite.svg' },
+			'preview': false,
+			'templates': {
+				css: require("fs").readFileSync("./svg_sprite_template.tmpl", "utf-8")
+			},
+			'layout': 'horizontal'
+		} ) )
+		.pipe( gulp.dest( '' ) );
+
+} );
+
+
+/*
 CSS
  */
-gulp.task( 'css', function(){
+gulp.task( 'css', ['svg_sprite'], function(){
 
 	gulp.src( 'source_css/*.scss' )
 		.pipe( plumber() )
@@ -37,6 +60,7 @@ gulp.task( 'css', function(){
 		.pipe( gulp.dest( 'css' ) );
 
 } );
+default_tasks.push( 'css' );
 gulp.task( 'watch_css', function(){
 	gulp.watch( 'source_css/*.scss', function( evt ){
 
@@ -93,3 +117,4 @@ dev_tasks.push('livereload');
 Tasks def
  */
 gulp.task( 'dev', dev_tasks );
+gulp.task( 'default', default_tasks );

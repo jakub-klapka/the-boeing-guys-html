@@ -1,0 +1,11 @@
+@mixin svg_sprite_common() {
+	background-size: ( {relWidth}px * 10 ) ( {relHeight}px * 10 );
+	background-image: url("{svgPath}");
+}
+
+{#svg}
+@mixin svg_sprite_{name}(){
+	@include svg_sprite_common();
+	background-position: ( {relPositionX}px * 10 ) ( {relPositionY}px * 10 );
+}
+{/svg}

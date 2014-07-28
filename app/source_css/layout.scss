@@ -1,5 +1,6 @@
 @import "normalize";
 @import "rhythm";
+@import "svg_sprite";
 
 /*
 Variables
@@ -30,13 +31,35 @@ Modules
 	}
 }
 
+@mixin panel_background_image( $url_suffix: '' ) {
+	background-image:
+		url('../images/screw#{$url_suffix}.png'),
+		url('../images/screw#{$url_suffix}.png'),
+		url('../images/screw#{$url_suffix}.png'),
+		url('../images/screw#{$url_suffix}.png'),
+		linear-gradient( to bottom, #3d4150 0%, #3d4150 1px, #30343f 1px, #30343f 2px, #2a2d37 2px, #2a2d37 3px );
+}
+
 .panel {
 	background: $panel_background;
 	background-repeat: no-repeat;
-	background-image:
-		url('../images/screw.png'),url('../images/screw.png'), url('../images/screw.png'), url('../images/screw.png'),
-		linear-gradient( to bottom, #3d4150 0%, #3d4150 1px, #30343f 1px, #30343f 2px, #2a2d37 2px, #2a2d37 3px );
+	@include panel_background_image();
+	background-size:
+		37px 36px,
+		37px 36px,
+		37px 36px,
+		37px 36px,
+		auto auto;
 	background-position: left top, right top, left bottom, right bottom;
+
+	@media
+		only screen and ( -webkit-min-device-pixel-ratio: 1.3 ),
+		only screen and ( min-resolution: 124.8dpi ) {
+
+		@include panel_background_image( '@2x' );
+
+	}
+
 
 	border-left: 1px solid #30343f;
 	border-right: 1px solid #30343f;
@@ -108,6 +131,7 @@ $side_indicators_image_width: 149px;
 	top: 0;
 	bottom: 0;
 	width: $side_indicators_image_width;
+	background-repeat: repeat-y;
 
 	&::before {
 		content: '';
@@ -145,23 +169,22 @@ $side_indicators_image_width: 149px;
 	$left_margin: ( - ( $container_width / 2 ) - $side_indicators_image_width - $gutter );
 
 	margin-left: $left_margin;
-	background-image: url('../images/lines_left.png');
+	@include svg_sprite_lines_left();
 
 	&::before {
 		margin-left: $left_margin;
-		background-image: url("../images/lines_left_top.png");
-
+		@include svg_sprite_lines_left_top();
 	}
 
 	&::after {
 		margin-left: $left_margin;
-		background-image: url("../images/lines_left_bottom.png");
+		@include svg_sprite_lines_left_bottom();
 	}
 
 }
 	.speedtape__indicator {
 		@extend %side_indicators__indicator;
-		background-image: url("../images/lines_left_indicator.png");
+		@include svg_sprite_lines_left_indicator();
 		margin-left: ( - ( $container_width / 2 ) - $gutter - 105px );
 		width: 43px;
 		padding-right: 10px;
@@ -175,29 +198,25 @@ $side_indicators_image_width: 149px;
 	$right_margin: ( $container_width / 2 ) + $gutter;
 
 	margin-left: $right_margin;
-	background-image: url('../images/lines_right.png');
-
+	@include svg_sprite_lines_right();
 
 	&::before {
 		margin-left: $right_margin;
-		background-image: url("../images/lines_right_top.png");
-
+		@include svg_sprite_lines_right_top();
 	}
 
 	&::after {
 		margin-left: $right_margin;
-		background-image: url("../images/lines_right_bottom.png");
-
+		@include svg_sprite_lines_right_bottom();
 	}
 
 }
 	.altimeter__indicator {
 		@extend %side_indicators__indicator;
-		background-image: url("../images/lines_right_indicator.png");
+		@include svg_sprite_lines_right_indicator();
 		margin-left:  ( $container_width / 2 ) + $gutter + 60px;
 		width: 58px;
 		padding-left: 10px;
-
 	}
 
 
