@@ -1,0 +1,13 @@
+/*
+Variables
+*/
+$panel_background: #2b2e39;
+$active_color: #ff9800;
+$gutter: 32px;
+$container_width: 960px;
+
+/*
+Rhythm mixins
+*/
+@import "rhythm";
+@include rhythm-init();

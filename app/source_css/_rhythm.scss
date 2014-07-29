@@ -25,7 +25,7 @@ $rhythm: null;
 }
 
 // defines global variables and prepares a vertical rhythm to work
-@mixin rhythm-init($__font-size, $__line-height, $__modular-scale) {
+@mixin rhythm-init($__font-size: 14px, $__line-height: 1.4, $__modular-scale: 'golden section') {
 	$rhythm-base-font-size: $__font-size;
 	$rhythm-base-line-height: rhythm-convert-line-height-to-px($__line-height);
 	$rhythm-base-ratio: $rhythm-base-line-height / $rhythm-base-font-size;
@@ -33,7 +33,7 @@ $rhythm: null;
 
 	$rhythm: $rhythm-base-line-height;
 
-	@include rhythm-normalize;
+	//@include rhythm-normalize;
 }
 
 // resizes a font and adjusts a line-height

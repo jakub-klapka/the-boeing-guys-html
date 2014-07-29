@@ -1,0 +1,84 @@
+@import "global";
+
+%clearfix {
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin panel_background_image( $url_suffix: '' ) {
+	background-image:
+	url('../images/screw#{$url_suffix}.png'),
+	url('../images/screw#{$url_suffix}.png'),
+	url('../images/screw#{$url_suffix}.png'),
+	url('../images/screw#{$url_suffix}.png'),
+	linear-gradient( to bottom, #3d4150 0%, #3d4150 1px, #30343f 1px, #30343f 2px, #2a2d37 2px, #2a2d37 3px );
+}
+
+.panel {
+	background: $panel_background;
+	background-repeat: no-repeat;
+	@include panel_background_image();
+	background-size:
+	37px 36px,
+	37px 36px,
+	37px 36px,
+	37px 36px,
+	auto auto;
+	background-position: left top, right top, left bottom, right bottom;
+
+	@media
+	only screen and ( -webkit-min-device-pixel-ratio: 1.3 ),
+	only screen and ( min-resolution: 124.8dpi ) {
+
+		@include panel_background_image( '@2x' );
+
+	}
+
+
+	border-left: 1px solid #30343f;
+	border-right: 1px solid #30343f;
+
+	box-shadow:
+	0 3px 15px -3px rgba( 0, 0, 0, 0.8 ),
+	0 -5px 5px -2px rgba( 255, 255, 255, 0.05 );
+
+	padding: $gutter 48px;
+	margin-bottom: $gutter;
+	min-height: 80px;
+}
+
+.button {
+	background-image: linear-gradient( to bottom, #3c3f49 0%, #3c3f49 2px, #2f323d 2px, #2f323d 3px, #363943 100% );
+	box-shadow:
+	0 3px 15px -3px rgba( 0, 0, 0, 0.8 ),
+	0 -5px 5px -2px rgba( 255, 255, 255, 0.05 );
+	border: 1px solid #3e414b;
+	border-top-color: #585a63;
+	border-bottom-color: #363943;
+
+	height: 50px;
+	line-height: 50px;
+	color: #FFF;
+	text-decoration: none;
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+	transition-property: border-color, color;
+	transition-duration: 300ms;
+
+	a {
+		color: inherit;
+		text-decoration: inherit;
+		display: block;
+		padding: 0 10px;
+	}
+
+	&.active,
+	&:hover {
+		border-color: $active_color;
+		color: $active_color;
+	}
+}
