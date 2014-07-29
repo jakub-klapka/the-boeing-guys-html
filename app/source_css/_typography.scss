@@ -7,17 +7,22 @@
 	/*
 	Rhythm
 	*/
+	@mixin remove_last_element_margin() {
+		> h1, > h2, > h3, > h4, > h5, > h6, > p, > ol, > ul, > hr, > q, > blockquote, > table, > .two_columns, > .three_columns {
+			//Terrible syntax -> Another gulp-sass bug
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
 	h1, h2, h3, h4, h5, h6, p, ol, ul, hr, q, blockquote, table {
 		margin-top: 0;
 		margin-bottom: rhythm(1);
 	}
 
-	> h1, > h2, > h3, > h4, > h5, > h6, > p, > ol, > ul, > hr, > q, > blockquote, > table {
-		//Terrible syntax -> Another gulp-sass bug
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
+	@include remove_last_element_margin();
+
 
 	/*
 	Headings
@@ -47,6 +52,42 @@
 	h4, h5, h6 {
 		font-size: inherit;
 	}
+
+	.two_columns {
+		font-size: 0;
+		margin-bottom: rhythm(1);
+
+		}
+		.two_columns__column {
+			@include remove_last_element_margin(); //nested extends don't work with gulp-sass yet
+			font-size: 1rem;
+			display: inline-block;
+			vertical-align: top;
+			width: calc( 50% - #{($gutter / 2)} );
+
+			&:first-of-type {
+				margin-right: $gutter;
+			}
+		}
+
+	.three_columns {
+		font-size: 0;
+		margin-bottom: rhythm(1);
+
+		}
+		.three_columns__column {
+			@include remove_last_element_margin();
+			font-size: 1rem;
+			display: inline-block;
+			vertical-align: top;
+			width: calc( 33.3% - #{( ( $gutter * 2 ) / 3)} );
+			margin-right: $gutter;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+
 
 
 
