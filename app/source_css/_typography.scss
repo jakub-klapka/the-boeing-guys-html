@@ -8,15 +8,15 @@
 	Rhythm
 	*/
 	@mixin remove_last_element_margin() {
-		> h1, > h2, > h3, > h4, > h5, > h6, > p, > ol, > ul, > hr, > q, > blockquote, > table, > .two_columns, > .three_columns {
+		> * {
 			//Terrible syntax -> Another gulp-sass bug
 			&:last-child {
-				margin-bottom: 0;
+				margin-bottom: 0 !important; //TODO: better handle specificity for .main_content .two_columns divs...
 			}
 		}
 	}
 
-	h1, h2, h3, h4, h5, h6, p, ol, ul, hr, q, blockquote, table {
+	h1, h2, h3, h4, h5, h6, p, ol, ul, hr, q, blockquote, table, figure {
 		margin-top: 0;
 		margin-bottom: rhythm(1);
 	}
@@ -51,6 +51,105 @@
 
 	h4, h5, h6 {
 		font-size: inherit;
+	}
+
+	a {
+		color: $active_color;
+		transition: color 300ms;
+
+		&:hover {
+			color: inherit;
+		}
+	}
+
+	blockquote {
+		@include remove_last_element_margin();
+		border-left: 5px solid $heading_color;
+		margin-left: 0;
+		margin-right: 0;
+		padding-left: 20px;
+		font-style: italic;
+		@include rhythm-text(18px, 1);
+	}
+
+	ul {
+		list-style: none;
+
+		> li {
+			position: relative;
+
+			&::before {
+				position: absolute;
+				content: '-';
+				left: -20px;
+				margin-top: -2px;
+				font-size: 28px;
+				font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+				color: $heading_color;
+			}
+		}
+
+		ul, ol { //any nested ul
+			margin-bottom: 0;
+		}
+	}
+
+	ol {
+		list-style: none;
+		counter-reset: ol-counter;
+
+		> li {
+			position: relative;
+			counter-increment: ol-counter;
+
+			&::before {
+				position: absolute;
+				content: counter( ol-counter ) '.';
+				left: -20px;
+				color: $heading_color;
+			}
+		}
+
+		ul, ol {
+			margin-bottom: 0;
+		}
+	}
+
+	figure {
+		margin-left: 0;
+		margin-right: 0;
+		margin-bottom: 0;
+	}
+
+	figcaption {
+		@include rhythm-text(12px, 2);
+		font-style: italic;
+		text-align: center;
+	}
+
+	img {
+		display: block;
+	}
+
+	.image_link {
+		position: relative;
+		display: block;
+
+		&::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			top: 0;
+			right: 0;
+			background: rgba( $heading_color, 0.5 );
+			opacity: 0;
+			transition: opacity 300ms;
+		}
+
+		&:hover::after {
+			opacity: 1;
+		}
 	}
 
 	.two_columns {
@@ -88,7 +187,11 @@
 			}
 		}
 
-
+	.metadata {
+		@include rhythm_text(12px);
+		font-style: italic;
+		text-align: center;
+	}
 
 
 }

@@ -241,6 +241,18 @@ $header_height: 196px;
 			height: 35px;
 			line-height: 35px;
 			margin: 0 10px $gutter;
+
+			&::before {
+				display: none;
+			}
+
+			a {
+				color: inherit;
+
+				&:hover {
+					color: $active_color;
+				}
+			}
 		}
 		.submenu__menu::after {
 			content: '';
