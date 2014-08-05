@@ -5,6 +5,7 @@ Tasks:
 	default - compile css, js, images
 	css - compile scss
 	dev - watcher
+	build - run default and copy output files to build folder
  */
 
 var gulp = require('gulp');
@@ -112,6 +113,22 @@ gulp.task( 'livereload', function(){
 	} );
 } );
 dev_tasks.push('livereload');
+
+
+/*
+Build
+ */
+gulp.task( 'build', ['default'], function(){
+	gulp.src([
+		'css/**/*',
+		'images/**/*',
+		'svg_sprite/**/*',
+		'source_js/**/*', //TODO: JS minify
+        '*.html'
+	], { base: '.' })
+		.pipe( gulp.dest( '../build' ) );
+} );
+
 
 /*
 Tasks def
