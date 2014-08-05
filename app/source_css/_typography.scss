@@ -16,7 +16,7 @@
 		}
 	}
 
-	h1, h2, h3, h4, h5, h6, p, ol, ul, hr, q, blockquote, table, figure {
+	h1, h2, h3, h4, h5, h6, p, ol, ul, hr, q, blockquote, table, figure, hr, .preview_gallery {
 		margin-top: 0;
 		margin-bottom: rhythm(1);
 	}
@@ -131,6 +131,22 @@
 		display: block;
 	}
 
+	hr {
+		height: rhythm( 1 );
+		border: none;
+		position: relative;
+
+		&::after {
+			content: '';
+			height: 1px;
+			background: $hr_color;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 50%;
+		}
+	}
+
 	.image_link {
 		position: relative;
 		display: block;
@@ -142,12 +158,29 @@
 			bottom: 0;
 			top: 0;
 			right: 0;
-			background: rgba( $heading_color, 0.5 );
+			background: rgba( $active_color, 0.75 );
 			opacity: 0;
 			transition: opacity 300ms;
+			z-index: 10;
 		}
 
-		&:hover::after {
+		&::before {
+			content: '';
+			width: 24px;
+			height: 24px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -( 24px / 2 );
+			margin-top: -( 24px / 2 );
+			@include svg_sprite_lightbox_icon();
+			opacity: 0;
+			transition: opacity 300ms;
+			z-index: 20;
+		}
+
+		&:hover::after,
+		&:hover::before {
 			opacity: 1;
 		}
 	}
@@ -193,5 +226,74 @@
 		text-align: center;
 	}
 
+	.download_link {
+		display: inline-block;
+		left: 50%;
+		transform: translateX( -50% );
+		font-weight: 300;
+		color: inherit;
+		text-decoration: none;
+		@include rhythm-text( 16px, 2 );
+		position: relative;
+		padding-left: 50px;
+
+		&:hover {
+			color: $active_color;
+		}
+
+		&::before {
+			content: '';
+			display: block;
+			position: absolute;
+			height: 28px;
+			width: 30px;
+			left: 0;
+			top: 50%;
+			margin-top: -( 28px / 2 );
+			@include svg_sprite_download_cloud();
+		}
+	}
+
+	.preview_gallery {
+		font-size: 0;
+
+		a {
+			font-size: 1rem;
+			vertical-align: top;
+			display: inline-block;
+			width: calc( 25% - #{( ( $gutter * 3 ) / 4 )} );
+			margin-right: $gutter;
+
+			&:nth-of-type( 4n ) {
+				margin-right: 0;
+			}
+		}
+		}
+		.preview_gallery__link {
+			display: block;
+			height: 124px;
+			position: relative;
+			text-align: center;
+			color: inherit;
+			text-decoration: none;
+			@include rhythm-text( 16px , 1);
+			font-weight: 300;
+			padding-top: 80px;
+			
+			&::before {
+				content: '';
+				width: 25px;
+				height: 24px;
+				position: absolute;
+				left: 50%;
+				margin-left: -( 25px / 2 );
+				top: 40px;
+				@include svg_sprite_gallery_thumb();
+			}
+
+			&:hover {
+				color: $active_color;
+			}
+		}
 
 }
