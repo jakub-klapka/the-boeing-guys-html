@@ -220,6 +220,87 @@ $header_height: 196px;
 				}
 			}
 
+.slider {
+	position: relative;
+	height: 402px;
+	margin-bottom: $gutter;
+	box-shadow:	0 3px 15px -3px rgba( 0, 0, 0, 0.8 );
+
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		top: 0;
+		z-index: 20;
+
+		@include screw_background( true );
+	}
+
+	}
+	.slider__image {
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		z-index: 10;
+		opacity: 0;
+		transition: opacity 300ms;
+
+		&:first-of-type {
+			opacity: 1;
+		}
+	}
+	.slider__image_placeholder {
+		display: none;
+	}
+	.slider__controls {
+		position: absolute;
+		width: 70px;
+		bottom: 30px;
+		left: 50%;
+		margin-left: -( 70px / 2 );
+		z-index: 40;
+		}
+		.slider__controls__knob {
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			margin-left: -( 50px / 2 );
+			width: 50px;
+			height: 50px;
+			background: url("../images/slider_knob.png") left top no-repeat;
+			border: none;
+			transform: rotate( 0deg );
+			transition: transform 200ms;
+			z-index: 60;
+
+			&:active,
+			&:focus {
+				outline: none;
+			}
+		}
+		%slider__controls__indicator {
+			position: absolute;
+			width: 32px;
+			height: 8px;
+			background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAIBAMAAABqq+CcAAAAIVBMVEXw8PD////w8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PCeHvoeAAAACnRSTlMAACUnKK3v8fLzk0DHJAAAADZJREFUCNdjYAovVWAURAAGs1WrkhmQQdSqVUtRBKpWrVq5CglgCmBocVu1KgXFFuaIVgNkAQD6/iGi+raQUQAAAABJRU5ErkJggg==')
+				left top no-repeat;
+			right: 50%;
+			bottom: 21px;
+			transform-origin: 100% 50%;
+			z-index: 50;
+		}
+		@for $i from 1 through 8 {
+			.slider__controls__indicator_#{$i} {
+				@extend %slider__controls__indicator;
+				transform: rotate( #{(( $i - 1 ) * 45)}deg );
+			}
+		}
+
+
+
 .main_content {
 
 }
