@@ -15,6 +15,8 @@ var plumber = require('gulp-plumber');
 var livereload = require('gulp-livereload');
 var imagemin = require('gulp-imagemin');
 var svg_sprite = require('gulp-svg-sprites');
+var handlebars = require('handlebars');
+var map = require('vinyl-map');
 
 var path = require('path');
 
@@ -82,6 +84,7 @@ gulp.task( 'watch_css', function(){
 	} );
 });
 dev_tasks.push('watch_css');
+
 
 /*
 Images

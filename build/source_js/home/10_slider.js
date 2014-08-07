@@ -8,13 +8,20 @@
 			this.slider = el;
 			this.delay = parseInt( this.slider.data( 'slider-timeout' ), 10 ) * 1000;
 			this.knob = this.slider.find( '.slider__controls__knob' );
+			this.slider_controls = this.slider.find( '.slider__controls' );
 			this.current = 1;
 			this.images = false;
 			this.current_image = false;
 			this.count = false;
 			this.interval = false;
+			this.loaded_def = $.Deferred();
 
 			this.bindEvents();
+
+			var t = this;
+			this.loaded_def.done( function(){
+				t.createControls();
+			} );
 
 		},
 
@@ -51,6 +58,33 @@
 			this.images = this.slider.find( '.slider__image' );
 			this.current_image = this.images.eq( 0 );
 			this.count = this.images.length;
+			this.loaded_def.resolve();
+
+		},
+
+		createControls: function() {
+			/*
+			<div class="slider__controls">
+				<button class="slider__controls__knob"></button>
+				<div class="slider__controls__indicator_1"></div>
+				<div class="slider__controls__indicator_2"></div>
+				<div class="slider__controls__indicator_3"></div>
+				<div class="slider__controls__indicator_4"></div>
+				<div class="slider__controls__indicator_5"></div>
+				<div class="slider__controls__indicator_6"></div>
+				<div class="slider__controls__indicator_7"></div>
+			</div>
+			*/
+
+			var slider_controls = $();
+
+			for( var i = 1; i <= this.count; i++ ) {
+
+				var control = $( '<div class="slider__controls__indicator_' + i + '"></div>' );
+
+				this.slider_controls.append( control );
+
+			}
 
 
 		},
