@@ -15,8 +15,7 @@ var plumber = require('gulp-plumber');
 var livereload = require('gulp-livereload');
 var imagemin = require('gulp-imagemin');
 var svg_sprite = require('gulp-svg-sprites');
-var handlebars = require('handlebars');
-var map = require('vinyl-map');
+var clean = require('gulp-clean');
 
 var path = require('path');
 
@@ -121,7 +120,12 @@ dev_tasks.push('livereload');
 /*
 Build
  */
-gulp.task( 'build', ['default'], function(){
+gulp.task( 'clean_build_dir', function(){
+	gulp.src( '../build', { read: false } )
+		.pipe( clean( { force: true } ) );
+} );
+gulp.task( 'build', ['clean_build_dir', 'default'], function(){
+
 	gulp.src([
 		'css/**/*',
 		'images/**/*',

@@ -36,7 +36,7 @@
 
 
 		//Preview gallery
-		$( '.preview_gallery' ).each( function(){
+		$( '.image_gallery' ).each( function(){
 			var images = $( this ).find( '.image_link' );
 			createLBInstance( images );
 		} );

@@ -430,7 +430,7 @@ Rhythm mixins
   /*
 	Headings
 	*/ }
-  .main_content h1, .main_content h2, .main_content h3, .main_content h4, .main_content h5, .main_content h6, .main_content p, .main_content ol, .main_content ul, .main_content hr, .main_content q, .main_content blockquote, .main_content table, .main_content figure, .main_content hr, .main_content .preview_gallery, .main_content .article_navigation {
+  .main_content h1, .main_content h2, .main_content h3, .main_content h4, .main_content h5, .main_content h6, .main_content p, .main_content ol, .main_content ul, .main_content hr, .main_content q, .main_content blockquote, .main_content table, .main_content figure, .main_content hr, .main_content .image_gallery, .main_content .article_navigation {
     margin-top: 0;
     margin-bottom: 25.2px; }
   .main_content > *:last-child {
@@ -610,17 +610,19 @@ Rhythm mixins
               background-size: 1074px 91px;
       background-image: url("../svg_sprite/sprite.svg");
       background-position: 0px 0px; }
-  .main_content .preview_gallery {
-    font-size: 0; }
-    .main_content .preview_gallery a {
+  .main_content .image_gallery {
+    font-size: 0;
+    margin-bottom: 0; }
+    .main_content .image_gallery a {
       font-size: 1rem;
       vertical-align: top;
       display: inline-block;
-      width: calc( 25% - 24px);
-      margin-right: 32px; }
-      .main_content .preview_gallery a:nth-of-type(4n) {
+      width: calc( 25% - 18.9px);
+      margin-right: 25.2px;
+      margin-bottom: 25.2px; }
+      .main_content .image_gallery a:nth-of-type(4n) {
         margin-right: 0; }
-  .main_content .preview_gallery__link {
+  .main_content .image_gallery__link {
     display: block;
     height: 124px;
     position: relative;
@@ -631,7 +633,7 @@ Rhythm mixins
     line-height: 25.2px;
     font-weight: 300;
     padding-top: 80px; }
-    .main_content .preview_gallery__link::before {
+    .main_content .image_gallery__link::before {
       content: '';
       width: 25px;
       height: 24px;
@@ -643,7 +645,7 @@ Rhythm mixins
               background-size: 1074px 91px;
       background-image: url("../svg_sprite/sprite.svg");
       background-position: -30px 0px; }
-    .main_content .preview_gallery__link:hover {
+    .main_content .image_gallery__link:hover {
       color: #ff9800; }
   .main_content .article_summary_heading {
     font-size: 18px;
