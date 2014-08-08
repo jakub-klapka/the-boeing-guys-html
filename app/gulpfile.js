@@ -4,6 +4,8 @@
 Tasks:
 	default - compile css, js, images
 	css - compile scss
+	images - optimize images
+	js - concat and uglify js
 	dev - watcher
 	build - run default and copy output files to build folder
  */
@@ -16,6 +18,11 @@ var livereload = require('gulp-livereload');
 var imagemin = require('gulp-imagemin');
 var svg_sprite = require('gulp-svg-sprites');
 var clean = require('gulp-clean');
+var uglify = require('gulp-uglify');
+var fs = require('fs');
+var concat = require('gulp-concat');
+var html_replace = require('gulp-html-replace');
+var merge = require('merge-stream');
 
 var path = require('path');
 
@@ -111,6 +118,31 @@ dev_tasks.push( 'watch_images' );
 
 
 /*
+Javascript
+ */
+var js_dirs =  fs.readdirSync('source_js/').filter(function (file) {
+		return fs.statSync('source_js/' + file).isDirectory();
+	} ),
+	js_tasks = [];
+js_dirs.forEach( function( dirname ){
+
+	gulp.task( 'js_' + dirname, function() {
+
+		return gulp.src( 'source_js/' + dirname + '/*.js' )
+			.pipe( concat( dirname + '.js', { newLine: ';' } ) )
+			.pipe( uglify() )
+			.pipe( gulp.dest( 'js' ) );
+
+	} );
+	js_tasks.push( 'js_' + dirname );
+
+} );
+
+gulp.task( 'js', js_tasks );
+default_tasks.push( 'js' );
+
+
+/*
 Livereload
  */
 gulp.task( 'livereload', function(){
@@ -129,16 +161,26 @@ gulp.task( 'clean_build_dir', function(){
 	return gulp.src( '../build', { read: false } )
 		.pipe( clean( { force: true } ) );
 } );
+
 gulp.task( 'build', ['clean_build_dir', 'default'], function(){
 
-	return gulp.src([
+	var copy_files = gulp.src([
 		'css/**/*',
 		'images/**/*',
 		'svg_sprite/**/*',
-		'source_js/**/*', //TODO: JS minify
-        '*.html'
+		'js/**/*'
 	], { base: '.' })
 		.pipe( gulp.dest( '../build' ) );
+
+	var replacements = {};
+	js_dirs.forEach( function( dirname ){
+		replacements[dirname] = 'js/' + dirname + '.js';
+	} );
+	var replace = gulp.src( '*.html' )
+		.pipe( html_replace( replacements ) )
+		.pipe( gulp.dest( '../build' ) );
+
+	return merge( copy_files, replace );
 } );
 
 
