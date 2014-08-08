@@ -33,7 +33,7 @@ SVG sprites
  */
 gulp.task( 'svg_sprite', function() {
 
-	gulp.src( 'source_svg_sprite/*.svg' )
+	return gulp.src( 'source_svg_sprite/*.svg' )
 		.pipe( imagemin() )
 		.pipe( svg_sprite( {
 			'cssFile': 'source_css/_svg_sprite.scss',
@@ -55,7 +55,7 @@ CSS
  */
 gulp.task( 'css', ['svg_sprite'], function(){
 
-	gulp.src( 'source_css/*.scss' )
+	return gulp.src( 'source_css/*.scss' )
 		.pipe( plumber() )
 		.pipe( sass( sass_config ) )
 		.pipe( autoprefixer() )
@@ -67,13 +67,13 @@ gulp.task( 'watch_css', function(){
 	gulp.watch( 'source_css/*.scss', function( evt ){
 
 		if( ( path.basename( evt.path ) ).charAt(0) === '_' ) {
-			gulp.src( 'source_css/*.scss' )
+			return gulp.src( 'source_css/*.scss' )
 				.pipe( plumber() )
 				.pipe( sass( sass_config ) )
 				.pipe( autoprefixer() )
 				.pipe( gulp.dest( 'css' ) );
 		} else {
-			gulp.src( evt.path )
+			return gulp.src( evt.path )
 				.pipe( plumber() )
 				.pipe( sass( sass_config ) )
 				.pipe( autoprefixer() )
@@ -88,14 +88,19 @@ dev_tasks.push('watch_css');
 /*
 Images
  */
-gulp.task( 'images', function() {
-	gulp.src( 'source_images/**/*.{jpg,jpeg,gif,png,svg}', { base: 'source_images' } )
+gulp.task( 'unknown_images', function(){
+
+	return gulp.src( ['source_images/**/*', '!*.{jpg,jpeg,gif,png,svg}'], { base: 'source_images' } )
+		.pipe( gulp.dest( 'images' ) );
+
+} );
+gulp.task( 'images', ['unknown_images'], function() {
+
+	return gulp.src( 'source_images/**/*.{jpg,jpeg,gif,png,svg}', { base: 'source_images' } )
 		.pipe( plumber() )
 		.pipe( imagemin( imagemin_config ) )
 		.pipe( gulp.dest( 'images' ) );
 
-	gulp.src( ['source_images/**/*', '!*.{jpg,jpeg,gif,png,svg}'], { base: 'source_images' } )
-		.pipe( gulp.dest( 'images' ) );
 } );
 default_tasks.push( 'images' );
 
@@ -121,12 +126,12 @@ dev_tasks.push('livereload');
 Build
  */
 gulp.task( 'clean_build_dir', function(){
-	gulp.src( '../build', { read: false } )
+	return gulp.src( '../build', { read: false } )
 		.pipe( clean( { force: true } ) );
 } );
 gulp.task( 'build', ['clean_build_dir', 'default'], function(){
 
-	gulp.src([
+	return gulp.src([
 		'css/**/*',
 		'images/**/*',
 		'svg_sprite/**/*',
