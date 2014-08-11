@@ -387,6 +387,7 @@
 				&::before {
 					content: '';
 					position: absolute;
+					height: 0;
 					top: 50%;
 					left: 50%;
 					margin-top: -($play_button_size/2);
@@ -396,7 +397,7 @@
 					border-color: transparent transparent transparent #FFF;
 					z-index: 20;
 					opacity: 0;
-					transition-property: opacity, border-width, height;
+					transition-property: opacity, border-bottom-width, border-top-width, height;
 					transition-duration: 300ms;
 				}
 
@@ -420,12 +421,15 @@
 
 				img {
 					display: block;
+					width: 265px;
+					height: auto;
 				}
 			}
 
 			&.playing a::before {
 				height: $play_button_size;
-				border-width: 0 0 0 $play_button_size;
+				border-bottom-width: 0;
+				border-top-width: 0;
 			}
 
 			}

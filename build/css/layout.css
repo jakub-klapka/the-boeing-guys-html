@@ -706,6 +706,7 @@ Rhythm mixins
       .main_content .youtube_gallery__thumbnail a::before {
         content: '';
         position: absolute;
+        height: 0;
         top: 50%;
         left: 50%;
         margin-top: -15px;
@@ -715,8 +716,8 @@ Rhythm mixins
         border-color: transparent transparent transparent #FFF;
         z-index: 20;
         opacity: 0;
-        -webkit-transition-property: opacity, border-width, height;
-                transition-property: opacity, border-width, height;
+        -webkit-transition-property: opacity, border-bottom-width, border-top-width, height;
+                transition-property: opacity, border-bottom-width, border-top-width, height;
         -webkit-transition-duration: 300ms;
                 transition-duration: 300ms; }
       .main_content .youtube_gallery__thumbnail a::after {
@@ -734,10 +735,13 @@ Rhythm mixins
       .main_content .youtube_gallery__thumbnail a:hover::after, .main_content .youtube_gallery__thumbnail a:hover::before {
         opacity: 1; }
       .main_content .youtube_gallery__thumbnail a img {
-        display: block; }
+        display: block;
+        width: 265px;
+        height: auto; }
     .main_content .youtube_gallery__thumbnail.playing a::before {
       height: 30px;
-      border-width: 0 0 0 30px; }
+      border-bottom-width: 0;
+      border-top-width: 0; }
   .main_content .youtube_gallery__thumbnail__heading {
     color: inherit;
     text-transform: none;
