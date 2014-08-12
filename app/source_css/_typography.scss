@@ -269,6 +269,11 @@
 			&:nth-of-type( 4n ) {
 				margin-right: 0;
 			}
+
+			img {
+				max-width: 100%;
+				height: auto;
+			}
 		}
 		}
 		.image_gallery__link {
@@ -281,8 +286,8 @@
 			@include rhythm-text( 16px , 1);
 			font-weight: 300;
 			padding-top: 80px;
-			
-			&::before {
+
+			@mixin pseudo() {
 				content: '';
 				width: 25px;
 				height: 24px;
@@ -290,11 +295,30 @@
 				left: 50%;
 				margin-left: -( 25px / 2 );
 				top: 40px;
-				@include svg_sprite_gallery_thumb();
+				transition: opacity 300ms;
+			}
+
+			&::before {
+				@include pseudo();
+				@include svg_sprite_gallery_thumb_white();
+			}
+
+			&::after {
+				@include pseudo();
+				@include svg_sprite_gallery_thumb_orange();
+				opacity: 0;
 			}
 
 			&:hover {
 				color: $active_color;
+
+				&::before {
+					opacity: 0;
+				}
+
+				&::after {
+					opacity: 1;
+				}
 			}
 		}
 

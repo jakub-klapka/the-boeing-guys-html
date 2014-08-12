@@ -369,7 +369,7 @@ Rhythm mixins
   border-right: 1px solid #30343f;
   -webkit-box-shadow: 0 3px 15px -3px rgba(0, 0, 0, 0.8), 0 -5px 5px -2px rgba(255, 255, 255, 0.05);
           box-shadow: 0 3px 15px -3px rgba(0, 0, 0, 0.8), 0 -5px 5px -2px rgba(255, 255, 255, 0.05);
-  padding: 32px 48px;
+  padding: 48px;
   margin-bottom: 32px;
   min-height: 80px; }
   @media only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min-resolution: 124.8dpi) {
@@ -542,10 +542,10 @@ Rhythm mixins
       top: 50%;
       margin-left: -12px;
       margin-top: -12px;
-      -webkit-background-size: 1074px 91px;
-              background-size: 1074px 91px;
+      -webkit-background-size: 1099px 91px;
+              background-size: 1099px 91px;
       background-image: url("../svg_sprite/sprite.svg");
-      background-position: -55px 0px;
+      background-position: -80px 0px;
       opacity: 0;
       -webkit-transition: opacity 300ms;
               transition: opacity 300ms;
@@ -606,8 +606,8 @@ Rhythm mixins
       left: 0;
       top: 50%;
       margin-top: -14px;
-      -webkit-background-size: 1074px 91px;
-              background-size: 1074px 91px;
+      -webkit-background-size: 1099px 91px;
+              background-size: 1099px 91px;
       background-image: url("../svg_sprite/sprite.svg");
       background-position: 0px 0px; }
   .main_content .image_gallery {
@@ -622,6 +622,9 @@ Rhythm mixins
       margin-bottom: 25.2px; }
       .main_content .image_gallery a:nth-of-type(4n) {
         margin-right: 0; }
+      .main_content .image_gallery a img {
+        max-width: 100%;
+        height: auto; }
   .main_content .image_gallery__link {
     display: block;
     height: 124px;
@@ -641,12 +644,33 @@ Rhythm mixins
       left: 50%;
       margin-left: -12.5px;
       top: 40px;
-      -webkit-background-size: 1074px 91px;
-              background-size: 1074px 91px;
+      -webkit-transition: opacity 300ms;
+              transition: opacity 300ms;
+      -webkit-background-size: 1099px 91px;
+              background-size: 1099px 91px;
       background-image: url("../svg_sprite/sprite.svg");
-      background-position: -30px 0px; }
+      background-position: -55px 0px; }
+    .main_content .image_gallery__link::after {
+      content: '';
+      width: 25px;
+      height: 24px;
+      position: absolute;
+      left: 50%;
+      margin-left: -12.5px;
+      top: 40px;
+      -webkit-transition: opacity 300ms;
+              transition: opacity 300ms;
+      -webkit-background-size: 1099px 91px;
+              background-size: 1099px 91px;
+      background-image: url("../svg_sprite/sprite.svg");
+      background-position: -30px 0px;
+      opacity: 0; }
     .main_content .image_gallery__link:hover {
       color: #ff9800; }
+      .main_content .image_gallery__link:hover::before {
+        opacity: 0; }
+      .main_content .image_gallery__link:hover::after {
+        opacity: 1; }
   .main_content .article_summary_heading {
     font-size: 18px;
     line-height: 25.2px;
@@ -797,56 +821,56 @@ body {
 
 .speedtape {
   margin-left: -661px;
-  -webkit-background-size: 1074px 91px;
-          background-size: 1074px 91px;
+  -webkit-background-size: 1099px 91px;
+          background-size: 1099px 91px;
   background-image: url("../svg_sprite/sprite.svg");
-  background-position: -79px 0px; }
+  background-position: -104px 0px; }
   .speedtape::before {
     margin-left: -661px;
-    -webkit-background-size: 1074px 91px;
-            background-size: 1074px 91px;
+    -webkit-background-size: 1099px 91px;
+            background-size: 1099px 91px;
     background-image: url("../svg_sprite/sprite.svg");
-    background-position: -420px 0px; }
+    background-position: -445px 0px; }
   .speedtape::after {
     margin-left: -661px;
-    -webkit-background-size: 1074px 91px;
-            background-size: 1074px 91px;
+    -webkit-background-size: 1099px 91px;
+            background-size: 1099px 91px;
     background-image: url("../svg_sprite/sprite.svg");
-    background-position: -228px 0px; }
+    background-position: -253px 0px; }
 
 .speedtape__indicator {
-  -webkit-background-size: 1074px 91px;
-          background-size: 1074px 91px;
+  -webkit-background-size: 1099px 91px;
+          background-size: 1099px 91px;
   background-image: url("../svg_sprite/sprite.svg");
-  background-position: -377px 0px;
+  background-position: -402px 0px;
   margin-left: -617px;
   width: 43px;
   padding-right: 10px; }
 
 .altimeter {
   margin-left: 512px;
-  -webkit-background-size: 1074px 91px;
-          background-size: 1074px 91px;
+  -webkit-background-size: 1099px 91px;
+          background-size: 1099px 91px;
   background-image: url("../svg_sprite/sprite.svg");
-  background-position: -569px 0px; }
+  background-position: -594px 0px; }
   .altimeter::before {
     margin-left: 512px;
-    -webkit-background-size: 1074px 91px;
-            background-size: 1074px 91px;
+    -webkit-background-size: 1099px 91px;
+            background-size: 1099px 91px;
     background-image: url("../svg_sprite/sprite.svg");
-    background-position: -925px 0px; }
+    background-position: -950px 0px; }
   .altimeter::after {
     margin-left: 512px;
-    -webkit-background-size: 1074px 91px;
-            background-size: 1074px 91px;
+    -webkit-background-size: 1099px 91px;
+            background-size: 1099px 91px;
     background-image: url("../svg_sprite/sprite.svg");
-    background-position: -718px 0px; }
+    background-position: -743px 0px; }
 
 .altimeter__indicator {
-  -webkit-background-size: 1074px 91px;
-          background-size: 1074px 91px;
+  -webkit-background-size: 1099px 91px;
+          background-size: 1099px 91px;
   background-image: url("../svg_sprite/sprite.svg");
-  background-position: -867px 0px;
+  background-position: -892px 0px;
   margin-left: 572px;
   width: 58px;
   padding-left: 10px; }
