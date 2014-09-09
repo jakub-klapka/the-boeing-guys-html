@@ -1,0 +1,59 @@
+---
+title: 737 NG
+---
+<!-- PANEL -->
+<article class="main_content panel">
+
+    <!-- SUBMENU -->
+    <nav class="submenu">
+        <ul class="submenu__menu">
+            <li class="submenu__menu__item button"><a href="[root_path]/fotogalerie/overhead">Kategorie 1</a></li>
+            <li class="submenu__menu__item button"><a href="[root_path]/fotogalerie/overhead">Kategorie 2</a></li>
+            <li class="submenu__menu__item button"><a href="[root_path]/fotogalerie/overhead">Kategorie 3</a></li>
+            <li class="submenu__menu__item button"><a href="[root_path]/fotogalerie/overhead">Kategorie 4</a></li>
+            <li class="submenu__menu__item button"><a href="[root_path]/fotogalerie/overhead">Kategorie 5</a></li>
+        </ul>
+    </nav>
+    <!-- /SUBMENU -->
+
+    <h1>Fotogalerie</h1>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor eos incidunt ipsum modi molestias natus
+        obcaecati porro totam. Aut consequuntur dignissimos nihil sed. Ab, accusamus eligendi non quos saepe
+        sunt.</p>
+
+    <!-- FOTOGALERIE -->
+    <div class="image_gallery">
+        <a href="http://lorempixel.com/800/600/transport/1" class="image_link">
+            <img src="http://lorempixel.com/196/124/transport/1" alt=""/>
+        </a>
+        <a href="http://lorempixel.com/800/600/transport/2" class="image_link">
+            <img src="http://lorempixel.com/196/124/transport/2" alt=""/>
+        </a>
+        <a href="http://lorempixel.com/800/600/transport/3" class="image_link">
+            <img src="http://lorempixel.com/196/124/transport/3" alt=""/>
+        </a>
+        <a href="http://lorempixel.com/800/600/transport/4" class="image_link">
+            <img src="http://lorempixel.com/196/124/transport/4" alt=""/>
+        </a>
+        <a href="http://lorempixel.com/800/600/transport/5" class="image_link">
+            <img src="http://lorempixel.com/196/124/transport/5" alt=""/>
+        </a>
+        <a href="http://lorempixel.com/800/600/transport/6" class="image_link">
+            <img src="http://lorempixel.com/196/124/transport/6" alt=""/>
+        </a>
+        <a href="http://lorempixel.com/800/600/transport/7" class="image_link">
+            <img src="http://lorempixel.com/196/124/transport/7" alt=""/>
+        </a>
+        <a href="http://lorempixel.com/800/600/transport/8" class="image_link">
+            <img src="http://lorempixel.com/196/124/transport/8" alt=""/>
+        </a>
+        <a href="http://lorempixel.com/800/600/transport/9" class="image_link">
+            <img src="http://lorempixel.com/196/124/transport/9" alt=""/>
+        </a>
+    </div>
+    <!-- /FOTOGALERIE -->
+
+
+</article>
+<!-- /PANEL -->

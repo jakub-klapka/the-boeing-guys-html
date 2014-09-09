@@ -1,0 +1,80 @@
+---
+title: Videa
+has_yt_gallery: true
+---
+<!-- PANEL -->
+<article class="main_content panel">
+
+    <!-- SUBMENU -->
+    <nav class="submenu">
+        <ul class="submenu__menu">
+            <li class="submenu__menu__item button"><a href="">Kategorie 1</a></li>
+            <li class="submenu__menu__item button"><a href="">Kategorie 2</a></li>
+            <li class="submenu__menu__item button"><a href="">Kategorie 3</a></li>
+            <li class="submenu__menu__item button"><a href="">Kategorie 4</a></li>
+            <li class="submenu__menu__item button"><a href="">Kategorie 5</a></li>
+        </ul>
+    </nav>
+    <!-- /SUBMENU -->
+
+    <h1>Videogalerie</h1>
+
+    <!-- VIDEOGALERIE -->
+    <div class="youtube_gallery" id="youtube_gallery">
+
+        <figure class="youtube_gallery__thumbnail">
+            <a href="https://www.youtube.com/watch?v=CwmnNoiSLzs&list=UUbbVAtyywkQscZc76qc8L5Q"></a>
+            <figcaption>
+                <h3 class="youtube_gallery__thumbnail__heading">Název videa</h3>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam asperiores est explicabo,
+                    fugiat fugit nesciunt vitae? Consequuntur et excepturi exercitationem harum nobis quas! Dolore
+                    laboriosam quo sapiente soluta temporibus vitae!</p>
+            </figcaption>
+        </figure>
+
+        <figure class="youtube_gallery__thumbnail">
+            <a href="https://www.youtube.com/watch?v=GyRvb6Hfzi8&list=UUbbVAtyywkQscZc76qc8L5Q"></a>
+            <figcaption>
+                <h3 class="youtube_gallery__thumbnail__heading">Název videa</h3>
+            </figcaption>
+        </figure>
+
+        <figure class="youtube_gallery__thumbnail">
+            <a href="https://www.youtube.com/watch?v=U8ICo18jFfo&list=UUbbVAtyywkQscZc76qc8L5Q"></a>
+            <figcaption>
+                <h3 class="youtube_gallery__thumbnail__heading">Název videa</h3>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam asperiores est explicabo,
+                    fugiat fugit nesciunt vitae? Consequuntur et excepturi exercitationem harum nobis quas! Dolore
+                    laboriosam quo sapiente soluta temporibus vitae!</p>
+            </figcaption>
+        </figure>
+
+        <figure class="youtube_gallery__thumbnail">
+            <a href="https://www.youtube.com/watch?v=P37OJD0g828&list=UUbbVAtyywkQscZc76qc8L5Q"></a>
+            <figcaption>
+                <h3 class="youtube_gallery__thumbnail__heading">Název videa</h3>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam asperiores est explicabo,
+                    fugiat fugit nesciunt vitaeolore
+                    laboriosam quo sapiente soluta temporibus vitae!</p>
+            </figcaption>
+        </figure>
+
+        <figure class="youtube_gallery__thumbnail">
+            <a href="https://www.youtube.com/watch?v=HVJa24LfnU4&list=UUbbVAtyywkQscZc76qc8L5Q"></a>
+            <figcaption>
+                <h3 class="youtube_gallery__thumbnail__heading">Název videa</h3>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam asperiores est explicabo,
+                    fugiat fugit nesciunt vitae? Consequuntur et excepturi exercitationem harum nobis quas! Dolore
+                    laboriosam quo sapiente soluta temporibus vitae!</p>
+            </figcaption>
+        </figure>
+
+    </div>
+    <!-- /VIDEOGALERIE -->
+
+</article>
+<!-- /PANEL -->
