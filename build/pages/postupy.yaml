@@ -1,0 +1,124 @@
+---
+title: Postupy
+---
+<!-- PANEL -->
+<article class="main_content panel">
+
+    <h1>Seznam článků</h1>
+
+    <h2>Varianta: dva sloupce</h2>
+
+    <!-- DVA SLOUPCE -->
+    <div class="two_columns">
+        <div class="two_columns__column">
+
+            <p><a href="" class="image_link article_summary_image"><img src="http://lorempixel.com/415/124/transport/1" alt="Obrázek"/></a></p>
+            <h2 class="article_summary_heading"><a href="">Nadpis článku</a></h2>
+            <time datetime="2014-01-01" class="article_summary_date">1. ledna 2014</time>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci architecto at commodi debitis
+                deleniti dolor doloribus ea, ex, expedita inventore mollitia non pariatur quidem quis, tempore vero
+                voluptates. Excepturi, porro.</p>
+
+        </div>
+        <div class="two_columns__column">
+
+            <p><a href="" class="image_link article_summary_image"><img src="http://lorempixel.com/415/124/transport/2" alt="Obrázek"/></a></p>
+            <h2 class="article_summary_heading"><a href="">Nadpis článku</a></h2>
+            <time datetime="2014-01-01" class="article_summary_date">1. ledna 2014</time>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci architecto at commodi debitis
+                deleniti dolor doloribus ea, ex, expedita inventore mollitia non pariatur quidem quis, tempore vero
+                voluptates. Excepturi, porro.</p>
+
+        </div>
+    </div>
+    <!-- /DVA SLOUPCE -->
+
+    <br/>
+
+    <h2>Varianta: 3 sloupce</h2>
+
+    <!-- TRI SLOUPCE -->
+    <div class="three_columns">
+        <div class="three_columns__column">
+
+            <p><a href="" class="image_link article_summary_image"><img src="http://lorempixel.com/265/124/transport/7" alt="Obrázek"/></a></p>
+            <h2 class="article_summary_heading"><a href="">Nadpis článku</a></h2>
+            <time datetime="2014-01-01" class="article_summary_date">1. ledna 2014</time>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci architecto at commodi debitis
+                deleniti dolor doloribus ea, ex, expedita inventore mollitia non pariatur quidem quis, tempore vero
+                voluptates. Excepturi, porro.</p>
+
+
+        </div>
+        <div class="three_columns__column">
+
+            <p><a href="" class="image_link article_summary_image"><img src="http://lorempixel.com/265/124/transport/8" alt="Obrázek"/></a></p>
+            <h2 class="article_summary_heading"><a href="">Nadpis článku</a></h2>
+            <time datetime="2014-01-01" class="article_summary_date">1. ledna 2014</time>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci architecto at commodi debitis
+                deleniti dolor doloribus ea, ex, expedita inventore mollitia non pariatur quidem quis, tempore vero
+                voluptates. Excepturi, porro.</p>
+
+        </div>
+        <div class="three_columns__column">
+
+            <p><a href="" class="image_link article_summary_image"><img src="http://lorempixel.com/265/124/transport/9" alt="Obrázek"/></a></p>
+            <h2 class="article_summary_heading"><a href="">Nadpis článku</a></h2>
+            <time datetime="2014-01-01" class="article_summary_date">1. ledna 2014</time>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci architecto at commodi debitis
+                deleniti dolor doloribus ea, ex, expedita inventore mollitia non pariatur quidem quis, tempore vero
+                voluptates. Excepturi, porro.</p>
+
+        </div>
+    </div>
+    <!-- /TRI SLOUPCE -->
+
+    <br/>
+
+    <!-- TRI SLOUPCE -->
+    <div class="three_columns">
+        <div class="three_columns__column">
+
+            <p><a href="" class="image_link article_summary_image"><img src="http://lorempixel.com/265/124/transport/4" alt="Obrázek"/></a></p>
+            <h2 class="article_summary_heading"><a href="">Nadpis článku</a></h2>
+            <time datetime="2014-01-01" class="article_summary_date">1. ledna 2014</time>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci architecto at commodi debitis
+                deleniti dolor doloribus ea, ex, expedita inventore mollitia non pariatur quidem quis, tempore vero
+                voluptates. Excepturi, porro.</p>
+
+
+        </div>
+        <div class="three_columns__column">
+
+            <p><a href="" class="image_link article_summary_image"><img src="http://lorempixel.com/265/124/transport/5" alt="Obrázek"/></a></p>
+            <h2 class="article_summary_heading"><a href="">Nadpis článku</a></h2>
+            <time datetime="2014-01-01" class="article_summary_date">1. ledna 2014</time>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci architecto at commodi debitis
+                deleniti dolor doloribus ea, ex, expedita inventore mollitia non pariatur quidem quis, tempore vero
+                voluptates. Excepturi, porro.</p>
+
+        </div>
+        <div class="three_columns__column">
+
+            <p><a href="" class="image_link article_summary_image"><img src="http://lorempixel.com/265/124/transport/6" alt="Obrázek"/></a></p>
+            <h2 class="article_summary_heading"><a href="">Nadpis článku</a></h2>
+            <time datetime="2014-01-01" class="article_summary_date">1. ledna 2014</time>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci architecto at commodi debitis
+                deleniti dolor doloribus ea, ex, expedita inventore mollitia non pariatur quidem quis, tempore vero
+                voluptates. Excepturi, porro.</p>
+
+        </div>
+    </div>
+    <!-- /TRI SLOUPCE -->
+
+    <hr/>
+
+    <!-- NAVIGACE V CLANKU -->
+    <div class="article_navigation">
+        <a class="article_navigation__left" href="">Předchozí články</a>
+        <a class="article_navigation__right" href="">Následující články</a>
+    </div>
+    <!-- /NAVIGACE V CLANKU -->
+
+</article>
+<!-- /PANEL -->

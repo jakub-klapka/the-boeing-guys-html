@@ -168,19 +168,16 @@ gulp.task( 'build', ['clean_build_dir', 'default'], function(){
 		'css/**/*',
 		'images/**/*',
 		'svg_sprite/**/*',
-		'js/**/*'
+		'js/**/*',
+		'inc/**/*',
+		'pages/**/*',
+		'.htaccess',
+		'browserconfig.xml',
+		'index.php'
 	], { base: '.' })
 		.pipe( gulp.dest( '../build' ) );
 
-	var replacements = {};
-	js_dirs.forEach( function( dirname ){
-		replacements[dirname] = 'js/' + dirname + '.js';
-	} );
-	var replace = gulp.src( '*.html' )
-		.pipe( html_replace( replacements ) )
-		.pipe( gulp.dest( '../build' ) );
-
-	return merge( copy_files, replace );
+	return copy_files;
 } );
 
 
