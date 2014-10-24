@@ -77,7 +77,7 @@
 					image = $( '<img/>' );
 
 				//get thumb url
-				var response = $.getJSON( 'http://gdata.youtube.com/feeds/api/videos/' + yt_id + '?v=2&alt=jsonc' );
+				var response = $.getJSON( '//gdata.youtube.com/feeds/api/videos/' + yt_id + '?v=2&alt=jsonc' );
 				response.done( function( data ){
 
 					image.attr( 'src', data.data.thumbnail.hqDefault );

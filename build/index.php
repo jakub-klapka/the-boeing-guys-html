@@ -5,8 +5,8 @@
 include_once( 'inc/frontmatter.php' );
 
 // -------- CONFIG -----------
-$root_path = '/theboeingguys/app'; //leave blank for root domain
-$css_js_ver = 1; //bump by one on every change of css or js files
+$root_path = '/preview/theboeingguys'; //leave blank for root domain
+$css_js_ver = 2; //bump by one on every change of css or js files
 $menu = array(
 	'index',
 	'cockpit',
@@ -46,7 +46,7 @@ function get_root_url() {
 	<meta charset="UTF-8">
 	<title><?php if( $content->keyExists( 'title' ) ) : ?><?= $content->fetch('title'); ?> | <?php endif; ?>The Boeing Guys</title>
 
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic,300,300italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic,300,300italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="<?= $root_path; ?>/css/layout.css?v=<?= $css_js_ver; ?>"/>
 
 	<!-- GOOGLE METADATA-->
